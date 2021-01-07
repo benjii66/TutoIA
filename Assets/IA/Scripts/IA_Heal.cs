@@ -11,7 +11,7 @@ public class IA_Heal : MonoBehaviour
 	public event Action OnTranquilidad = null;
 
 
-	[SerializeField] int health = 4;
+	[SerializeField] int health = 100;
 	[SerializeField] int healZone = 4;
 	[SerializeField] Transform target = null;
 
