@@ -63,8 +63,8 @@ public class IA_Brain : MonoBehaviour
 
         movement.OnPositionReached += () =>
         {
+          
             fsm.SetBool(waitParameter, true);
-            fsm.SetBool(chaseParameter, false);
         };
     }
 

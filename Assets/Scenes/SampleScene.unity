@@ -806,7 +806,7 @@ MonoBehaviour:
   pattern: {fileID: 0}
   chaseParameter: Chase_Target
   patternParameter: Follow_Pattern
-  waitParameter: Chase_Target
+  waitParameter: Wait
   chaseState: {fileID: 0}
   patternState: {fileID: 0}
   waitState: {fileID: 0}
