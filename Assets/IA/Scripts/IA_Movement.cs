@@ -8,6 +8,7 @@ public class IA_Movement : MonoBehaviour
     public event Action OnPositionReached = null;
     [SerializeField]Vector3 targetPosition = Vector3.zero;
     [SerializeField,Range(0,10)]float atPosRange = 2;
+    [SerializeField, Range(0, 100)] float speed = 2;
 
     public bool IsAtPos => Vector3.Distance(targetPosition, transform.position) < atPosRange;
 
@@ -21,7 +22,7 @@ public class IA_Movement : MonoBehaviour
             OnPositionReached?.Invoke();
             return; 
         }
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition,speed * Time.deltaTime);
     }
 
     private void OnDrawGizmos()
