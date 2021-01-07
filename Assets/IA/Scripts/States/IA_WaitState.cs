@@ -11,4 +11,6 @@ public class IA_WaitState : IA_State
         OnExit += () => brain.FSM.SetBool("Wait", false);
     }
 
+ 
+
 }

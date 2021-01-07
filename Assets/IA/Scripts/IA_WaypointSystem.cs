@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class IA_WaypointSystem : MonoBehaviour
@@ -8,7 +7,8 @@ public class IA_WaypointSystem : MonoBehaviour
     [SerializeField] int indexPoint = -1;
 
     public Vector3 PickPoint()
-    {
+    {       
+        //ça rentre deux fois
         indexPoint++;
         Debug.Log(indexPoint);
         indexPoint %= wayPoint.Count;
