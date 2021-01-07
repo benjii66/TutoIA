@@ -766,6 +766,8 @@ GameObject:
   - component: {fileID: 1562792953}
   - component: {fileID: 1562792952}
   - component: {fileID: 1562792951}
+  - component: {fileID: 1562792955}
+  - component: {fileID: 1562792956}
   m_Layer: 0
   m_Name: IA
   m_TagString: Untagged
@@ -804,12 +806,21 @@ MonoBehaviour:
   movement: {fileID: 0}
   detection: {fileID: 0}
   pattern: {fileID: 0}
+  heal: {fileID: 0}
+  attack: {fileID: 0}
   chaseParameter: Chase_Target
   patternParameter: Follow_Pattern
   waitParameter: Wait
+  isHealing: Is_Healing
+  isHealed: Is_Healed
+  isHitting: Is_Hitting
+  isDead: Is_Dead
+  IsOnRange: Is_Range
   chaseState: {fileID: 0}
   patternState: {fileID: 0}
   waitState: {fileID: 0}
+  healState: {fileID: 0}
+  attackState: {fileID: 0}
 --- !u!95 &1562792951
 Animator:
   serializedVersion: 3
@@ -875,6 +886,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 47888355}
   detectionRange: 5
+--- !u!114 &1562792955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562792948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de765c4c06044474d837901ca832eb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAnim: {fileID: 1562792951}
+  damage: 5
+  hitRange: 0
+  player: {fileID: 1708166976}
+--- !u!114 &1562792956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562792948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220ea3d54086c824caec86934f377705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 4
+  healZone: 4
+  target: {fileID: 1708166975}
 --- !u!1 &1667557831
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1708166975}
+  - component: {fileID: 1708166976}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -1000,6 +1043,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1708166976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708166974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d92e15c43e09848875b8924cbe4962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1935573561
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ public class IA_WaypointSystem : MonoBehaviour
     {       
         //ça rentre deux fois
         indexPoint++;
-        Debug.Log(indexPoint);
         indexPoint %= wayPoint.Count;
         return wayPoint[indexPoint];
     }

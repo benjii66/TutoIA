@@ -5,6 +5,7 @@ using System;
 
 public class IA_Detection : MonoBehaviour
 {
+
     public event Action<Vector3> OnTargetDetected = null;
 
     //ajouter un vector3 pour une phase recherche potientielle
@@ -14,6 +15,7 @@ public class IA_Detection : MonoBehaviour
     [SerializeField] Transform target = null;
     [SerializeField, Range(1,10)] int detectionRange = 5;
 
+    public int DetectionRange => detectionRange;
 
     public bool IsDetected { get; private set; } = false;
 
