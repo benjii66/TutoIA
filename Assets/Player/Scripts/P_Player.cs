@@ -9,15 +9,16 @@ public class P_Player : MonoBehaviour
     [SerializeField] float speedRotation = 1;
     [SerializeField] Camera camera1 = null;
     [SerializeField] Animator playerAnim = null;
-    [SerializeField] bool useClampValue = true;
     [SerializeField] Transform target = null;
-    [SerializeField] float clampMaxValue = 60;
-    [SerializeField] float clampMinValue = 20;
+
+    [SerializeField] float VisualRange = 20;
 
     Vector3 movement = Vector3.zero;
     public int Health => health;
     float rotateY = 0, rotateX = 0;
     public void SetHealth(int _health) => health = _health;
+
+    public bool IsAtRange => Vector3.Distance(target.position, transform.position) < VisualRange;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class P_Player : MonoBehaviour
     void Update()
     {
         Move();
- 
+        Hit();
     }
 
     void Move()
@@ -44,7 +45,12 @@ public class P_Player : MonoBehaviour
         transform.position += movement;
     }
 
-    
+    void Hit()
+	{
+        if (IsAtRange)
+            if (Input.GetButton("Fire1"))
+                playerAnim.Play("Punch");
+	}
 
   
 }

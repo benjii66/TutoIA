@@ -13,8 +13,10 @@ public class IA_Heal : MonoBehaviour
 
 	[SerializeField] int health = 100;
 	[SerializeField] int healZone = 4;
+	[SerializeField] float durationParticle = 10.0f;
 	[SerializeField] Transform target = null;
-
+	[SerializeField] ParticleSystem healParticle = null;
+	
 
 	public bool TargetAtRange
 	{
@@ -57,8 +59,19 @@ public class IA_Heal : MonoBehaviour
 		{
 			health += health * (int)Time.deltaTime;
 			Debug.Log("dude wtf");
-			//joue l'effet
-			//joue l'anim
+
+			//joue l'effet avec duration time
+
+
+
+			healParticle.Stop();
+
+			//VOIR LA DURATION CAR NE DOIT PAS JOUER QUAND LE PLAY Y EST
+			ParticleSystem.MainModule _mainModule = healParticle.main;
+			_mainModule.duration = durationParticle;
+
+			healParticle.Play();
+		
 			if (health == 100)
 				OnFullHeal?.Invoke();
 		}
