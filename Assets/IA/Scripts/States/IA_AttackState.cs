@@ -9,18 +9,18 @@ public class IA_AttackState : IA_State
 		base.InitState(_brain);
 		OnEnter += () =>
 		{
+
 			brain.Attack.DistanceRange();
 			brain.FSM.SetBool("Is_Hitting", true);
+			brain.FSM.SetBool("Is_Kill", false);
 		};
 
-		//if (brain.Heal.Health >= 0)
-		//OnExit += () => brain.FSM.SetBool("Is_Dead", true);
-
 		if (!brain.Attack.IsOnRange)
-			OnExit += () => brain.FSM.SetBool("Is_Hitting", false);
-		
-
-
+			OnExit += () =>
+			{
+				brain.FSM.SetBool("Is_Hitting", false);
+				brain.FSM.SetBool("Is_Kill", true);
+			};
 	}
 
 

@@ -17,12 +17,14 @@ public class IA_Movement : MonoBehaviour
 
     public void MoveTo()
     {
+        float _step = speed * Time.deltaTime;
         if(IsAtPos)
         {
             OnPositionReached?.Invoke();
             return; 
         }
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition,speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, _step);
+        transform.LookAt(targetPosition);
     }
 
     private void OnDrawGizmos()
