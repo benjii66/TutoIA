@@ -1,0 +1,9 @@
+Ia archer
+familier qui suit (animation crawl avec un machin bizarre)
+joueur détecté, l'ia donne l'ordre au familier d'attaquer
+ia attaque à distance, reste à distance, familier attaque sur ordre
+heal automatique au pet
+pet qui après l'attaque revient à l'archer
+2 ia qui communiquent entre elles
+
+si pet tue le joueur pet revient au maître
